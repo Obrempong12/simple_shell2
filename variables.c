@@ -91,7 +91,7 @@ int substitute_alias(info_t *para)
 		b = _strdup(b + 1);
 		if (!b)
 			return (0);
-		info->argv[0] = b;
+		info_t->argv[0] = b;
 	}
 	return (1);
 }
@@ -106,9 +106,9 @@ int substitute_vars(info_t *para)
 	int m = 0;
 	list_t *node;
 
-	for (m = 0; info->argv[m]; m++)
+	for (m = 0; info_t->argv[m]; m++)
 	{
-		if (info->argv[m][0] != '$' || !info->argv[m][1])
+		if (info_t->argv[m][0] != '$' || !info->argv[m][1])
 		continue;
 
 		if (!_strcmp(para->argv[m], "$?"))

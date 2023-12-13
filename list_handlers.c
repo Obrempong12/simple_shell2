@@ -25,7 +25,7 @@ size_t list_length(const list_t *b)
 char **list_return_strings(list_t *ph)
 {
 	list_t *node = ph;
-	size_t m = list_handler(ph), k;
+	size_t m = sa_handler(ph), k;
 	char **strs;
 	char *str;
 
@@ -64,11 +64,11 @@ size_t print_list(const list_t *b)
 
 	while (b)
 	{
-		_puts(convert_number(b->num, 10, 0));
+		_put(convert_number(b->num, 10, 0));
 		_putchar(':');
 		_putchar(' ');
-		_puts(b->str ? b->str : "(nil)");
-		_puts("\n");
+		_put(b->str ? b->str : "(nil)");
+		_put("\n");
 		b = b->next;
 		m++;
 	}
@@ -88,7 +88,7 @@ list_t *node_starts_with(list_t *ph, char *prefix, char c)
 
 	while (ph)
 	{
-		q = starts_with(ph->str, prefix);
+		q = node_starts_with(ph->str, prefix);
 		if (q && ((c == -1) || (*q == c)))
 			return (ph);
 		ph = ph->next;

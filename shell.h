@@ -179,6 +179,7 @@ int renumber_history(info_t *info);
 /* list.c */
 list_t *add_start_node(list_t **, const char *, int);
 list_t *add_end_node(list_t **, const char *, int);
+list_t *node_starts_with(list_t *, char *, char);
 size_t print_str_list(const list_t *);
 int delete_node_index(list_t **, unsigned int);
 void free_node_list(list_t **);
@@ -191,7 +192,7 @@ list_t *node_starts_with(list_t *, char *, char);
 ssize_t get_index_node(list_t *, list_t *);
 
 /* main.c */
-int main(int argc, char **argv)
+int main(int argc, char **argv);
 
 /* memory_.c */
 int pfree(void **);

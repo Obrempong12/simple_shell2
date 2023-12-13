@@ -25,9 +25,9 @@ int main(int argc, char **argv)
 				exit(126);
 			if (errno == ENOENT)
 			{
-				_ pinputstr(argv[0]);
-				_ pinputstr(": 0: Can't open ");
-				_ pinputstr(argv[1]);
+				_pinputstr(argv[0]);
+				_pinputstr(": 0: Can't open ");
+				_pinputstr(argv[1]);
 				_writchar('\n');
 				_writchar(BUF_FLUSH);
 				exit(127);
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		para->readfd = fd;
 	}
 	populate_env_list(para);
-	read_history(para);
+	write_history(para);
 	hsh(para, argv);
 	return (EXIT_SUCCESS);
 }

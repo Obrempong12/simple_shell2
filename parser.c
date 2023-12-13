@@ -54,7 +54,7 @@ char *locate_path(info_t *para, char *strpath, char *cmd)
 
 	if (!strpath)
 		return (NULL);
-	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
+	if ((_strlen(cmd) > 2) && node_starts_with(cmd, "./"))
 	{
 		if (is_cmd(para, cmd))
 			return (cmd);

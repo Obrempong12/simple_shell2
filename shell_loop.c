@@ -13,14 +13,14 @@ int hsh(info_t *para, char **argv)
 
 	while (y != -1 && in_built_nest != -2)
 	{
-		clear_para(para);
+		clearerr(para);
 		if (interactive(para))
-			_puts("$ ");
-		_eputchar(BUF_FLUSH);
+			_put("$ ");
+		_putchar(BUF_FLUSH);
 		y = get_input(para);
 		if (y != -1)
 		{
-			set_para(info, argv);
+			set_para(info_t, argv);
 			in_built_nest = find_built_in(para);
 			if (in_built_nest == -1)
 				find_cmd(para);
