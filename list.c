@@ -7,16 +7,16 @@
  * @index: node index
  * Return: size of list
  */
-list_a *add_start_node(list_t **ph, const char *str, int index)
+list_t *add_start_node(list_t **ph, const char *str, int index)
 {
-	list_a *new_h;
+	list_t *new_h;
 
 	if (!ph)
 		return (NULL);
-	new_h = malloc(sizeof(list_a));
+	new_h = malloc(sizeof(list_t));
 	if (!new_h)
 		return (NULL);
-	_memset((void *)new_h, 0, sizeof(list_a));
+	_memset((void *)new_h, 0, sizeof(list_t));
 	new_h->index = index;
 	if (str)
 	{
@@ -39,18 +39,18 @@ list_a *add_start_node(list_t **ph, const char *str, int index)
  * @index: node index
  * Return: size of list
  */
-list_a *add_end_node(list_a **ph, const char *str, int index)
+list_t *add_end_node(list_t **ph, const char *str, int index)
 {
-	list_a *new_node, *node;
+	list_t *new_node, *node;
 
 	if (!ph)
 		return (NULL);
 
 	node = *ph;
-	new_node = malloc(sizeof(list_a));
+	new_node = malloc(sizeof(list_t));
 	if (!new_node)
 		return (NULL);
-	_memset((void *)new_node, 0, sizeof(list_a));
+	_memset((void *)new_node, 0, sizeof(list_t));
 	new_node->index = index;
 	if (str)
 	{
@@ -77,7 +77,7 @@ list_a *add_end_node(list_a **ph, const char *str, int index)
  * @b: pointer to first node
  * Return: size of list
  */
-size_t print_str_list(const list_a *b)
+size_t print_str_list(const list_t *b)
 {
 	size_t m = 0;
 
@@ -97,9 +97,9 @@ size_t print_str_list(const list_a *b)
  * @index: index of node to be deleted
  * Return: 1 on success, otherwise 0
  */
-int delete_node_index(list_a **ph, unsigned int index)
+int delete_node_index(list_t **ph, unsigned int index)
 {
-	list_a *node, *prev_node;
+	list_t *node, *prev_node;
 	unsigned int m = 0;
 
 	if (!ph || !*ph)
@@ -135,9 +135,9 @@ int delete_node_index(list_a **ph, unsigned int index)
  * @ph: address of pointer to head node
  * Return: void
  */
-void free_node_list(list_a **ph)
+void free_node_list(list_t **ph)
 {
-	list_a *node, *next_node, *head;
+	list_t *node, *next_node, *head;
 
 	if (!ph || !*ph)
 		return;

@@ -82,9 +82,9 @@ typedef struct passinfo
 	int err_num;
 	int linecount_flag;
 	char *fname;
-	list_a *env;
-	list_a *history;
-	list_a *alias;
+	list_t *env;
+	list_t *history;
+	list_t *alias;
 	char **environ;
 	int env_changed;
 	int status;
@@ -177,18 +177,18 @@ int add_history_list(info_t *info, char *buf, int linecount);
 int renumber_history(info_t *info);
 
 /* list.c */
-list_a *add_start_node(list_a **, const char *, int);
-list_a *add_end_node(list_a **, const char *, int);
-size_t print_str_list(const list_a *);
-int delete_node_index(list_a **, unsigned int);
-void free_node_list(list_a **);
+list_t *add_start_node(list_t **, const char *, int);
+list_t *add_end_node(list_t **, const char *, int);
+size_t print_str_list(const list_t *);
+int delete_node_index(list_t **, unsigned int);
+void free_node_list(list_t **);
 
 /* list_handlers.c */
-size_t list_length(const list_a *);
-char **list_return_strings(list_a *);
-size_t print_list(const list_a *);
-list_t *node_starts_with(list_a *, char *, char);
-ssize_t get_index_node(list_a *, list_a *);
+size_t list_length(const list_t *);
+char **list_return_strings(list_t *);
+size_t print_list(const list_t *);
+list_t *node_starts_with(list_t *, char *, char);
+ssize_t get_index_node(list_t *, list_t *);
 
 /* main.c */
 int main(int argc, char **argv)
@@ -229,7 +229,7 @@ char **string_words(char *, char *);
 char **string_words1(char *, char);
 
 /* variables.c */
-info chain_delimiter(info_t *, char *, size_t *);
+info_t chain_delimiter(info_t *, char *, size_t *);
 void chain_status(info_t *, char *, size_t *, size_t, size_t);
 int substitute_alias(info_t *);
 int substitute_vars(info_t *);

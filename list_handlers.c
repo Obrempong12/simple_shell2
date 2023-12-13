@@ -5,7 +5,7 @@
  * @b: pointer to first node
  * Return: size of list
  */
-size_t list_length(const list_a *b)
+size_t list_length(const list_t *b)
 {
 	size_t m = 0;
 
@@ -22,9 +22,9 @@ size_t list_length(const list_a *b)
  * @ph: pointer to first node
  * Return: array of strings
  */
-char **list_return_strings(list_a *ph)
+char **list_return_strings(list_t *ph)
 {
-	list_a *node = ph;
+	list_t *node = ph;
 	size_t m = list_handler(ph), k;
 	char **strs;
 	char *str;
@@ -58,7 +58,7 @@ char **list_return_strings(list_a *ph)
  * @b: pointer to first node
  * Return: size of list
  */
-size_t print_list(const list_a *b)
+size_t print_list(const list_t *b)
 {
 	size_t m = 0;
 
@@ -82,7 +82,7 @@ size_t print_list(const list_a *b)
  * @c: the next character
  * Return: match node or null
  */
-list_a *node_starts_with(list_t *ph, char *prefix, char c)
+list_t *node_starts_with(list_t *ph, char *prefix, char c)
 {
 	char *q = NULL;
 
@@ -102,7 +102,7 @@ list_a *node_starts_with(list_t *ph, char *prefix, char c)
  * @pn: pointer to the node
  * Return: index of node or -1
  */
-ssize_t get_index_node(list_a *ph, list_a *pn)
+ssize_t get_index_node(list_t *ph, list_t *pn)
 {
 	size_t m = 0;
 
